@@ -29,7 +29,7 @@ function injectSlideWordmarks() {
 
     const wordmark = document.createElement('img');
     wordmark.className = 'slide-wordmark';
-    wordmark.src = '/assets/brand/wordmark.png';
+    wordmark.src = './assets/brand/wordmark.png';
     wordmark.alt = 'UNIST';
     wordmark.setAttribute('aria-hidden', 'true');
     slide.appendChild(wordmark);

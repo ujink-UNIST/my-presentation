@@ -47,7 +47,9 @@
   position: absolute;
   inset: -12px;
   z-index: 0;
-  background: url('/assets/backgrounds/bg-unist-insight.jpg') center / cover no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   filter: blur(3px) saturate(1.04) brightness(0.98);
   transform: scale(1.02);
   pointer-events: none;
