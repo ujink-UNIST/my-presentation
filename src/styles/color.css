@@ -1,0 +1,18 @@
+:root {
+  color-scheme: light;
+  --unist-navy: #002856;
+  --unist-navy-2: #012553;
+  --unist-cyan: #43c0c2;
+  --unist-cyan-2: #20bec2;
+  --unist-teal: #1ccfc9;
+  --accent-mint: #5ee4c1;
+  --accent-teal: #28c1ce;
+  --accent-blue: #4592c8;
+  --unist-red: #f34e32;
+  --unist-orange: #f7941e;
+  --text: var(--unist-navy);
+  --muted: #4d5b6b;
+  --line: #dfe7ee;
+  --surface: #ffffff;
+  --surface-soft: #f6f9fb;
+}
