@@ -31,10 +31,12 @@ function loadSlides() {
 loadSlides();
 applySlideLayout();
 
+const isPrintPdfMode = new URLSearchParams(window.location.search).has('print-pdf');
+
 const deck = new Reveal({
   hash: true,
-  width: '100%',
-  height: '100%',
+  width: isPrintPdfMode ? 1920 : '100%',
+  height: isPrintPdfMode ? 1080 : '100%',
   margin: 0,
   minScale: 1,
   maxScale: 1,
@@ -106,8 +108,6 @@ function initCurrentSlide(slide) {
     });
   });
 }
-
-const isPrintPdfMode = new URLSearchParams(window.location.search).has('print-pdf');
 
 await deck.initialize();
 if (isPrintPdfMode) {
