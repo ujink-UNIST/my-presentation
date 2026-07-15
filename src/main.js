@@ -44,9 +44,13 @@ const deck = new Reveal({
 });
 
 function applySlideLayout() {
-  document.querySelectorAll('.reveal .slides > section:not(.title-slide)').forEach(slide => {
+  const allSlides = Array.from(document.querySelectorAll('.reveal .slides > section'));
+  const totalSlides = allSlides.length;
+
+  allSlides.filter(slide => !slide.classList.contains('title-slide')).forEach(slide => {
     if (slide.classList.contains('slide-layout')) return;
 
+    const slideNumber = allSlides.indexOf(slide) + 1;
     const children = Array.from(slide.childNodes);
     const headerNodes = [];
     const bodyNodes = [];
@@ -73,11 +77,24 @@ function applySlideLayout() {
 
     const footer = document.createElement('footer');
     footer.className = 'slide-footer';
-    footer.innerHTML = '<img class="slide-wordmark" src="./assets/brand/wordmark.png" alt="UNIST" />';
+    footer.innerHTML = `<img class="slide-wordmark" src="./assets/brand/wordmark.png" alt="UNIST" /><span class="slide-number">${String(slideNumber).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}</span>`;
 
     slide.replaceChildren(header, body, footer);
     slide.classList.add('slide-layout');
   });
+}
+
+function initSlideVisuals(slide) {
+  if (!slide) return Promise.resolve();
+
+  const tasks = [];
+  if (slide.querySelector('#volume-container')) tasks.push(initVolumeSlide());
+  if (slide.querySelector('#lattice-container')) tasks.push(initLatticeSlide());
+  if (slide.querySelector('#seat-apsd-container')) tasks.push(initSeatApsdSlide());
+  if (slide.querySelector('#plotly-scaling-container, #plotly-exponent-container')) tasks.push(initPlotlySlide());
+  if (slide.querySelector('#stiffness-heatmap-container')) tasks.push(initStiffnessHeatmapSlide());
+
+  return Promise.allSettled(tasks);
 }
 
 function initCurrentSlide(slide) {
@@ -85,17 +102,20 @@ function initCurrentSlide(slide) {
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      if (slide.querySelector('#volume-container')) initVolumeSlide();
-      if (slide.querySelector('#lattice-container')) initLatticeSlide();
-      if (slide.querySelector('#seat-apsd-container')) initSeatApsdSlide();
-      if (slide.querySelector('#plotly-scaling-container, #plotly-exponent-container')) initPlotlySlide();
-      if (slide.querySelector('#stiffness-heatmap-container')) initStiffnessHeatmapSlide();
+      initSlideVisuals(slide);
     });
   });
 }
 
+const isPrintPdfMode = new URLSearchParams(window.location.search).has('print-pdf');
+
 await deck.initialize();
-initCurrentSlide(deck.getCurrentSlide());
+if (isPrintPdfMode) {
+  await Promise.allSettled(Array.from(document.querySelectorAll('.reveal .slides > section')).map(initSlideVisuals));
+  resizeCurrentVisualizations();
+} else {
+  initCurrentSlide(deck.getCurrentSlide());
+}
 
 deck.on('slidechanged', event => {
   initCurrentSlide(event.currentSlide);

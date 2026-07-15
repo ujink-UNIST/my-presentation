@@ -13,7 +13,7 @@
   --fs-h3: clamp(30px, 2vw, 38px);
   --fs-body: clamp(24px, 1.55vw, 30px);
   --fs-list-title: clamp(28px, 1.8vw, 34px);
-  --fs-list-body: clamp(21px, 1.35vw, 26px);
-  --fs-control: clamp(16px, 1vw, 20px);
+  --fs-list-body: clamp(22px, 1.35vw, 26px);
+  --fs-control: clamp(22px, 1.15vw, 24px);
   --fs-stat: clamp(80px, 6.2vw, 120px);
 }

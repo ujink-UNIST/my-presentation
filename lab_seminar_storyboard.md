@@ -282,10 +282,13 @@ Implicit field
 
 ### 주요 관찰
 
+- Beam element는 각 strut를 1D member로 이상화함
+- Solid element는 finite strut thickness, joint volume, local 3D stress state를 반영함
 - Beam 결과는 대부분 거의 선형에 가까운 scaling: \(n\approx1.00\sim1.46\)
 - Solid 결과는 topology에 따라 더 넓은 범위: \(n\approx1.14\sim2.11\)
 - Octet과 rhombic 등에서는 beam/solid scaling 차이가 특히 크게 나타남
-- 따라서 beam–solid 차이는 하나의 일정한 보정계수로 처리하기 어려움
+- Beam–solid 차이는 하나의 일정한 보정계수로 처리하기 어려움
+- Beam model은 빠른 screening에 유용하고, solid FEM은 최종 evaluator와 modal dataset 생성에 사용함
 
 ### 그래프 1. Volume Fraction vs. Effective Modulus Ratio
 

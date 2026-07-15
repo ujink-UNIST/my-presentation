@@ -5,16 +5,16 @@
     <div id="plotly-scaling-container" class="visualization-container plotly-panel plotly-scaling-panel"></div>
     <div class="plotly-side-stack">
       <div id="plotly-exponent-container" class="visualization-container plotly-panel plotly-exponent-panel"></div>
-      <div class="column card plotly-notes">
+      <div class="storyboard-main-card plotly-notes beam-solid-notes">
         <h3>Key message</h3>
-        <p>Beam and solid homogenization predict different topology-dependent scaling.</p>
+        <p>Beam elements idealize each strut as a 1D member. Solid elements resolve finite strut thickness, joint volume, and local 3D stress states.</p>
         <ul>
-          <li>Left plot keeps the full measured range, including VF ≥ 1.</li>
-          <li>The shaded region marks VF ≥ 1, where beam volume fraction can become nonphysical due to overlap counting.</li>
-          <li>Color indicates unit-cell type; line style and marker type indicate beam or solid model.</li>
-          <li>The exponent plot uses VF &lt; 1 for fitting.</li>
+          <li>The two models produce topology-dependent stiffness scaling, so one global correction factor cannot align them.</li>
+          <li>The shaded region marks VF ≥ 1, where beam volume fraction over-counts overlapping joint volumes.</li>
+          <li>The exponent plot fits only VF &lt; 1 and compares the power law E<sub>eff</sub>/E<sub>s</sub> = C·VF<sup>n</sup>.</li>
+          <li>Beam models support rapid screening; solid FEM drives the final evaluator and modal dataset.</li>
         </ul>
-        <p>Solid FEM is retained as the high-fidelity evaluator.</p>
+        <p>Conclusion: keep solid FEM for high-fidelity data, then reduce the number of runs with active learning.</p>
       </div>
     </div>
   </div>

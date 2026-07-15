@@ -47,7 +47,8 @@
   flex: 0 0 auto;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: space-between;
+  gap: 24px;
   min-height: 42px;
   margin-top: auto;
   padding: 8px 0 10px;
@@ -75,6 +76,16 @@
   height: auto;
   flex: 0 0 auto;
   pointer-events: none;
+}
+
+.reveal .slide-footer .slide-number {
+  margin-left: auto;
+  margin-right: 96px;
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.68;
 }
 
 .reveal section.title-slide {
