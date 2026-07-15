@@ -305,23 +305,3 @@
     gap: 28px;
   }
 }
-html.reveal-print .reveal .slides {
-  position: static !important;
-  width: 100% !important;
-  height: auto !important;
-  inset: auto !important;
-  overflow: visible !important;
-}
-
-html.reveal-print .reveal .slides > section,
-html.reveal-print .reveal .slides section {
-  min-height: 0 !important;
-  inset: auto !important;
-  overflow: hidden !important;
-  transform: none !important;
-  container-type: normal;
-}
-
-html.reveal-print .reveal .slides section.slide-layout {
-  gap: 16px;
-}
