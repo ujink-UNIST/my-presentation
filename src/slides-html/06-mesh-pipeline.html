@@ -1,0 +1,64 @@
+<section id="mesh-pipeline" class="layout-title-body storyboard-slide">
+  <h2>From Implicit Geometry to Analysis-Ready Mesh</h2>
+
+  <div class="storyboard-layout cols-1-1 mesh-pipeline-layout">
+    <div class="storyboard-main-card">
+      <div class="setting-strip">
+        <span>surface: multi_vertex</span>
+        <span>volume: TetGen</span>
+        <span>element: Tet10</span>
+        <span>output: ANSYS CDB</span>
+      </div>
+      <div class="process-flow vertical-friendly mesh-process-flow">
+        <span>Surface geometry</span>
+        <span>multi-vertex dual contouring surface mesh</span>
+        <span>TetGen order-2 volume mesh</span>
+        <span>ANSYS SOLID187 CDB</span>
+        <span>DB artifact registration</span>
+      </div>
+      <div class="artifact-note">
+        <strong>Artifacts:</strong> surface triangle mesh, voxel classification data, volume Tet10 mesh, ANSYS CDB,
+        optional periodic
+        node
+        pairs, metadata / DB records.
+      </div>
+
+      <div class="mesh-rationale-grid">
+        <article>
+          <strong>Implicit field</strong>
+          <p>Builds continuous strut–joint geometry and avoids fragile CAD Boolean operations.</p>
+        </article>
+        <article>
+          <strong>Multi-vertex DC</strong>
+          <p>Direct edge-intersection triangulation creates many unnecessary triangles and needle/sliver meshes.
+            Multi-vertex DC better preserves joint topology where struts meet.</p>
+        </article>
+        <article>
+          <strong>TetGen Tet10</strong>
+          <p>Handles concave lattice surfaces more reliably than volume meshers that work mainly on convex surfaces.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="mesh-figure-card">
+      <div class="mesh-image-grid">
+        <figure>
+          <img src="./assets/images/lattice/bcc_voxel_data.png" alt="BCC voxel data" />
+          <figcaption>Voxel / field data</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/images/lattice/bcc_implicit.png" alt="BCC implicit surface" />
+          <figcaption>Implicit surface</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/images/lattice/bcc_surface.png" alt="BCC triangle surface mesh" />
+          <figcaption>Surface mesh</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/images/lattice/bcc_volume_clip.png" alt="BCC clipped tetrahedral volume mesh" />
+          <figcaption>Volume mesh / periodic mapping</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

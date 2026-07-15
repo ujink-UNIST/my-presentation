@@ -1,0 +1,30 @@
+<section id="implications-conclusion" class="layout-title-body storyboard-slide">
+  <h2>Implications and Future Direction</h2>
+
+  <div class="storyboard-layout cols-1-1 paper-result-layout">
+    <div class="storyboard-main-card">
+      <h3>Connection to this research</h3>
+      <table class="comparison-table implications-table">
+        <thead><tr><th>Paper</th><th>This work</th><th>Extension</th></tr></thead>
+        <tbody>
+          <tr><td>28D binary strut on/off vector</td><td>Periodic lattice graph input</td><td>Broader graph-based design space</td></tr>
+          <tr><td>Uniform strut cross-section</td><td>Graph + implicit geometry</td><td>Radius, smoothness, joint shape, and connectivity variables</td></tr>
+          <tr><td>Stress–strain curve target</td><td>Cᴴ, density, f<sub>1</sub>–f<sub>4</sub>, mode shapes</td><td>Static and dynamic target responses</td></tr>
+          <tr><td>Large precomputed FE dataset</td><td>Automated evaluator + costly modal outputs</td><td>Active learning for simulation selection</td></tr>
+        </tbody>
+      </table>
+      <div class="paper-gap-callout">
+        The paper motivates inverse design; this work builds the evaluator needed to generate graph-based stiffness and modal datasets.
+      </div>
+    </div>
+
+    <div class="storyboard-main-card paper-figure-card story-card-emphasis">
+      <h3>Conclusion</h3>
+      <p>The immediate contribution is an automated solid-FEM evaluator for periodic lattice graphs, producing stiffness, density, and low-order modal data for future AI-driven design.</p>
+      <figure class="paper-slide-figure conclusion-figure">
+        <img src="./assets/images/paper/zhang2025_graphical_abstract.jpg" alt="Graphical abstract connecting dataset preparation, machine learning, and inverse design" />
+        <figcaption>Long-term direction: graph-based evaluator → active dataset → inverse design with stiffness and modal targets.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

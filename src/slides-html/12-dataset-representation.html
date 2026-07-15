@@ -1,0 +1,28 @@
+<section id="dataset-representation" class="layout-title-body storyboard-slide">
+  <h2>Dataset and Structural Representation</h2>
+
+  <div class="storyboard-layout cols-1-1 paper-result-layout">
+    <div class="storyboard-main-card">
+      <h3>28-dimensional binary topology vector</h3>
+      <ul>
+        <li>Each binary variable represents the existence of a candidate structural member.</li>
+        <li>Mechanical response is a quasi-static compression stress–strain curve.</li>
+        <li>The dataset contains more than 20,000 FE-simulated 3D lattice topologies.</li>
+      </ul>
+      <div class="paper-gap-callout">
+        <strong>Connection to this project:</strong> the dataset pipeline is very similar: define lattice topology → generate FE model → run simulation → store response data. The key difference is that this work uses graph/implicit geometry and targets Cᴴ plus modal outputs.
+      </div>
+      <div class="paper-gap-callout secondary-callout">
+        Fixed candidate members make the paper's topology representation compact, but the design space is bounded by the predefined bar set.
+      </div>
+    </div>
+
+    <div class="storyboard-main-card paper-figure-card">
+      <h3>Structure encoding and FE dataset generation</h3>
+      <figure class="paper-slide-figure">
+        <img src="./assets/images/paper/figures/fig1.jpg" alt="Dataset preparation and FE simulation setup from the reviewed paper" />
+        <figcaption>Structural design, FE compression simulation, and stress–strain dataset construction.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

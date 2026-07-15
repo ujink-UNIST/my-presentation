@@ -1,0 +1,95 @@
+<section id="fem-backend" class="layout-title-body storyboard-slide">
+  <h2>Automated FEM Backend and Data Management</h2>
+
+  <div class="backend-architecture">
+    <div class="backend-node ai-node">
+      <div class="backend-box-title">
+        <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+        <div>
+          <p class="story-card-kicker">AI / Client Environment</p>
+          <h3>Candidate selection</h3>
+        </div>
+      </div>
+      <ul>
+        <li>Active-learning loop</li>
+        <li>Periodic graph candidates</li>
+        <li>API request submission</li>
+      </ul>
+    </div>
+
+    <div class="backend-arrow">→</div>
+
+    <div class="backend-node builder-node">
+      <div class="backend-box-title">
+        <i class="fa-solid fa-gears" aria-hidden="true"></i>
+        <div>
+          <p class="story-card-kicker">Request-driven build stages</p>
+          <h3>API-triggered Builder / Worker Pipeline</h3>
+        </div>
+      </div>
+      <div class="builder-grid">
+        <span>LGF / lattice JSON parsing</span>
+        <span>graph → tiled SDF geometry</span>
+        <span>dual-based surface meshing</span>
+        <span>TetGen volume meshing<br /></span>
+        <span>CAIR lowering<br /><small>APDL macro / FEniCS / custom solver</small></span>
+        <span>artifact + DB metadata package</span>
+      </div>
+    </div>
+
+    <div class="backend-arrow">→</div>
+
+    <div class="backend-node queue-node">
+      <div class="backend-box-title">
+        <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+        <div>
+          <p class="story-card-kicker">Queue / Scheduler</p>
+          <h3>Job control</h3>
+        </div>
+      </div>
+      <ul>
+        <li>DB-backed job id / status</li>
+        <li>retry / timeout</li>
+        <li>resource assignment</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="backend-lower-row">
+    <div class="solver-farm">
+      <div class="backend-box-title">
+        <i class="fa-solid fa-server" aria-hidden="true"></i>
+        <div>
+          <h3>Distributed solver runners</h3>
+        </div>
+      </div>
+      <div class="runner-grid">
+        <div class="runner-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><strong>APDL runner 01</strong><span>MAPDL execution</span></div>
+        <div class="runner-card"><i class="fa-solid fa-microchip" aria-hidden="true"></i><strong>APDL runner 02</strong><span>MAPDL execution</span></div>
+        <div class="runner-card"><i class="fa-solid fa-flask" aria-hidden="true"></i><strong>Dolfinx runner</strong><span>script execution</span></div>
+        <div class="runner-card"><i class="fa-solid fa-plug" aria-hidden="true"></i><strong>Custom solver</strong><span>plugin target</span></div>
+      </div>
+    </div>
+
+    <div class="backend-node result-node">
+      <div class="backend-box-title">
+        <i class="fa-solid fa-folder-tree" aria-hidden="true"></i>
+        <div>
+          <p class="story-card-kicker">Results / Artifacts / DB</p>
+          <h3>Structured outputs</h3>
+        </div>
+      </div>
+      <ul>
+        <li>Cᴴ, ρ<sub>rel</sub></li>
+        <li>f<sub>1</sub>–f<sub>4</sub>, mode shapes</li>
+        <li>mesh, logs, solver files</li>
+        <li>artifact registry + provenance</li>
+        <li>error category + metadata</li>
+      </ul>
+    </div>
+  </div>
+
+  <aside class="notes">
+    CAIR stands for Computational Analysis Intermediate Representation. In this project, it is a Jinja2/YAML-style intermediate format that defines the analysis macro and execution recipe. The purpose is to describe how the analysis should run once, then lower the same representation to multiple solver backends such as APDL, FEniCS/Dolfinx, or custom solvers.
+  </aside>
+</section>

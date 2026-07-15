@@ -1,0 +1,36 @@
+<section id="inverse-design" class="layout-title-body storyboard-slide">
+  <h2>Inverse Design Workflow</h2>
+
+  <div class="storyboard-main-card compact-top-card">
+    <h3>Target response → database-assisted topology generation → FE validation</h3>
+    <div class="process-flow compact-flow">
+      <span>Target curve</span>
+      <span>Database matching</span>
+      <span>Candidate filtering</span>
+      <span>Topology selection</span>
+      <span>FE validation</span>
+    </div>
+  </div>
+
+  <div class="storyboard-layout cols-1-1 paper-result-layout compact-lower-layout">
+    <div class="storyboard-main-card paper-figure-card">
+      <h3>Paper's inverse design procedure</h3>
+      <figure class="paper-slide-figure short">
+        <img src="./assets/images/paper/figures/fig3.jpg" alt="Inverse design workflow from target stress-strain curves to lattice cells" />
+        <figcaption>Target curves are matched and refined to generate lattice cells with desired responses.</figcaption>
+      </figure>
+    </div>
+    <div class="storyboard-main-card">
+      <h3>Database-assisted inverse design</h3>
+      <ul>
+        <li>Target response is represented by curve features such as peak locations and amplitudes.</li>
+        <li>Similar structures are retrieved from the trained/database space.</li>
+        <li>Bar-number and connectivity constraints filter infeasible candidates.</li>
+        <li>FE simulation verifies whether the selected topology follows the target curve.</li>
+      </ul>
+      <div class="paper-gap-callout">
+        Review point: generated designs are convincing, but novelty and one-to-many diversity depend on database coverage.
+      </div>
+    </div>
+  </div>
+</section>

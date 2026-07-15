@@ -1,0 +1,57 @@
+<section id="lattice-representation" class="layout-title-body storyboard-slide">
+  <h2>Lattice Representation and Geometry Generation</h2>
+
+  <div class="storyboard-layout cols-2-1 lattice-representation-layout">
+    <div class="storyboard-main-card">
+      <div class="process-flow">
+        <span>Lattice graph</span>
+        <span>Strut / joint cleanup</span>
+        <span>Strut / joint SDF</span>
+        <span>Implicit field</span>
+        <span>Surface geometry</span>
+      </div>
+      <ul>
+        <li>The system input is a generalized periodic lattice graph.</li>
+        <li>Periodic edges crossing unit-cell boundaries are represented in the same graph workflow.</li>
+        <li>Equivalent graph inputs are cleaned into a consistent strut/joint representation before implicit conversion.
+        </li>
+        <li>Struts and joints are defined using signed-distance / implicit fields.</li>
+        <li>Radius and smoothness are treated as continuous design variables.</li>
+        <li>Eight well-known lattices are used as validation/comparison cases.</li>
+      </ul>
+      <div class="note-callout benchmark-callout">
+        <strong>Current benchmark set:</strong> SC, BCC, FCC, diamond, Kelvin, octahedron, octet, and rhombic.
+        <pre class="lgf-snippet"># bcc.lgf
+# Body-centered lattice
+# <span class="lgf-node-token">n</span> x y z: node coordinates in unit-cell space [0, 1]
+# <span class="lgf-strut-token">s</span> i j: strut between node indices i and j
+
+# Nodes
+<span class="lgf-node-token">n</span> 0 0 0
+<span class="lgf-node-token">n</span> 0 0 1
+<span class="lgf-node-token">n</span> 0 1 0
+<span class="lgf-node-token">n</span> 0 1 1
+<span class="lgf-node-token">n</span> 1 0 0
+<span class="lgf-node-token">n</span> 1 0 1
+<span class="lgf-node-token">n</span> 1 1 0
+<span class="lgf-node-token">n</span> 1 1 1
+<span class="lgf-node-token">n</span> 0.5 0.5 0.5
+
+# Struts
+<span class="lgf-strut-token">s</span> 0 8
+<span class="lgf-strut-token">s</span> 1 8
+<span class="lgf-strut-token">s</span> 2 8
+<span class="lgf-strut-token">s</span> 3 8
+<span class="lgf-strut-token">s</span> 4 8
+<span class="lgf-strut-token">s</span> 5 8
+<span class="lgf-strut-token">s</span> 6 8
+<span class="lgf-strut-token">s</span> 7 8</pre>
+      </div>
+    </div>
+
+    <div class="storyboard-visual-card lattice-visual-card">
+      <h3>Tiled periodic graph</h3>
+      <div id="lattice-container" class="visualization-container storyboard-viewer"></div>
+    </div>
+  </div>
+</section>

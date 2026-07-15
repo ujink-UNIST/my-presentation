@@ -1,0 +1,29 @@
+<section id="pbc-homogenization" class="layout-title-body storyboard-slide">
+  <h2>Unit-Cell Homogenization with PBC</h2>
+
+  <div class="storyboard-layout cols-1-1 pbc-layout">
+    <div class="storyboard-main-card">
+      <h3>Why periodic boundary conditions?</h3>
+      <p>PBC is selected because it is consistent with an infinitely repeating lattice assumption.</p>
+      <div class="equation-callout">
+        \(\mathbf{u}^{+}-\mathbf{u}^{-}=\bar{\boldsymbol{\varepsilon}}(\mathbf{x}^{+}-\mathbf{x}^{-})\)</div>
+      <ul>
+        <li>Apply independent macroscopic strain load cases.</li>
+        <li>Constrain paired nodes on opposite faces.</li>
+        <li>Compute volume-averaged stress or reaction-force response.</li>
+        <li>Assemble the homogenized stiffness matrix \(\mathbf{C}^{H}\).</li>
+        <li>Store relative density and run a separate lattice modal analysis for \(f_1\sim f_4\) and mode shapes.</li>
+      </ul>
+      <div class="stiffness-summary-grid">
+        <article><span>C<sub>11</sub> / C<sub>11,steel</sub></span><strong>0.0615</strong></article>
+        <article><span>C<sub>12</sub> / C<sub>12,steel</sub></span><strong>0.0490</strong></article>
+        <article><span>C<sub>44</sub> / G<sub>steel</sub></span><strong>0.0385</strong></article>
+      </div>
+    </div>
+
+    <div class="storyboard-main-card stiffness-card">
+      <h3>Normalized BCC stiffness matrix</h3>
+      <div id="stiffness-heatmap-container" class="visualization-container stiffness-heatmap"></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<section id="vae-residual" class="layout-title-body storyboard-slide">
+  <h2>Multi-Task VAE with Residual Predictor</h2>
+
+  <div class="storyboard-layout cols-1-1 paper-result-layout">
+    <div class="storyboard-main-card">
+      <h3>Why VAE + residual predictor?</h3>
+      <ul>
+        <li><strong>VAE branch:</strong> learns a compact latent space for reconstructing discrete lattice topologies.</li>
+        <li><strong>Prediction branch:</strong> maps the latent representation to the nonlinear stress–strain curve.</li>
+        <li><strong>Residual module:</strong> corrects curve details that the main predictor misses, especially peaks and oscillatory regions.</li>
+      </ul>
+      <div class="process-flow vertical-friendly compact-flow">
+        <span>Structure vector</span>
+        <span>Encoder</span>
+        <span>Latent space</span>
+        <span>Decoder / predictor</span>
+        <span>Residual correction</span>
+      </div>
+      <div class="paper-gap-callout">
+        Key idea: one latent representation supports both forward response prediction and inverse search for target curves.
+      </div>
+    </div>
+
+    <figure class="paper-slide-figure paper-standalone-figure">
+      <img src="./assets/images/paper/figures/fig9.jpg" alt="VAE and residual predictor architecture from the reviewed paper" />
+      <figcaption>Encoder–decoder reconstruction branch and residual module for stress–strain response prediction.</figcaption>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+<section id="active-learning" class="layout-title-body storyboard-slide">
+  <h2>Why Active Learning?</h2>
+
+  <div class="storyboard-layout cols-1-1 active-learning-layout">
+    <div class="storyboard-main-card">
+      <h3>Evaluation cost becomes the bottleneck</h3>
+      <table class="comparison-table compact-comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Prior lattice studies</th>
+            <th>This work</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Main output</td>
+            <td>Unit-cell Cᴴ, density</td>
+            <td>Cᴴ, density, 1st–4th lattice modes</td>
+          </tr>
+          <tr>
+            <td>Evaluation</td>
+            <td>Beam or solid unit-cell FEM</td>
+            <td>Solid homogenization + lattice modal analysis</td>
+          </tr>
+          <tr>
+            <td>Data generation</td>
+            <td>Precomputed sampling</td>
+            <td>Next candidate selected from model uncertainty and information value</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="cost-grid">
+        <article><span>Meshing</span><strong>30 s–2 min</strong><small>CPU fallback can exceed 2 h / volume mesh</small>
+        </article>
+        <article><span>Solid solve</span><strong>&lt; 3 min</strong><small>per macroscopic strain case</small></article>
+        <article><span>Modal solve</span><strong>~30 min</strong><small>low-order lattice modes</small></article>
+      </div>
+
+      <div class="active-learning-note">
+        Uniform precomputation can spend evaluations on redundant regions while missing rare high-value topologies.
+      </div>
+    </div>
+
+    <div class="storyboard-main-card">
+      <h3>Implemented basis and planned loop</h3>
+      <ul>
+        <li>Implemented basis: periodic graph workflow, implicit geometry, meshing, PBC homogenization, MAPDL input
+          generation, and result extraction.</li>
+        <li>Current eight graphs: benchmark topology set from binary strut on/off patterns with symmetry replication.
+        </li>
+        <li>Design space can extend by removing a strut, perturbing strut position, or changing local geometry
+          parameters.</li>
+        <li>Planned surrogate: graph-based model with node/edge features, uncertainty estimation, and acquisition-based
+          FEM selection.</li>
+        <li>Stop when target accuracy is reached or FEM budget is exhausted.</li>
+      </ul>
+      <div class="process-flow vertical-friendly active-learning-flow">
+        <span>Candidate graphs</span>
+        <span class="flow-nowrap">Predict Cᴴ, ρ, modes</span>
+        <span>Surrogate uncertainty</span>
+        <span>Acquisition score</span>
+        <span>Select next FEM cases</span>
+        <span>Update DB / retrain</span>
+      </div>
+      <div class="active-learning-note secondary">
+        Learning-curve comparison with random sampling will be added after enough paired experiments are available.
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    Cost ranges to mention verbally: meshing usually takes about 30 seconds to 2 minutes, but volume meshing can exceed
+    2 hours when CUDA acceleration is disabled. Each strain solve is within about 3 minutes, while modal analysis is
+    about 30 minutes. The eight current lattice graphs are a benchmark topology set: binary strut on/off patterns are
+    symmetry-replicated into the cell, similar to cases used in several lattice papers. The workflow is more flexible
+    because it can also remove individual struts, perturb strut positions, or modify local geometry. Learning-curve
+    evidence versus random sampling is not shown yet because paired experiments are not sufficient.
+  </aside>
+</section>

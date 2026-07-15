@@ -1,18 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Prompt:wght@600;700;800&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root {
   --font-body: Pretendard, Inter, "Noto Sans KR", "Segoe UI", Arial, sans-serif;
   --font-display: Prompt, Pretendard, Inter, "Noto Sans KR", sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", Consolas, monospace;
 
-  --fs-title: 160px;
-  --fs-title-subtitle: 48px;
-  --fs-h1: 96px;
-  --fs-h2: 64px;
-  --fs-h3: 40px;
-  --fs-body: 32px;
-  --fs-list-title: 36px;
-  --fs-list-body: 28px;
-  --fs-control: 20px;
-  --fs-stat: 120px;
+  --fs-title: clamp(96px, 8.4vw, 160px);
+  --fs-title-subtitle: clamp(34px, 2.5vw, 48px);
+  --fs-h1: clamp(64px, 5vw, 96px);
+  --fs-h2: clamp(46px, 3.2vw, 60px);
+  --fs-h3: clamp(30px, 2vw, 38px);
+  --fs-body: clamp(24px, 1.55vw, 30px);
+  --fs-list-title: clamp(28px, 1.8vw, 34px);
+  --fs-list-body: clamp(21px, 1.35vw, 26px);
+  --fs-control: clamp(16px, 1vw, 20px);
+  --fs-stat: clamp(80px, 6.2vw, 120px);
 }

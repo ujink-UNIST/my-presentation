@@ -17,19 +17,63 @@
   container-type: inline-size;
   box-sizing: border-box;
   min-height: 100%;
-  padding: 84px 112px 92px;
+  padding: 34px 64px 44px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--surface);
   border-radius: 0;
   box-shadow: none;
 }
 
-.reveal .slide-wordmark {
-  position: absolute;
-  left: 30px;
-  bottom: 30px;
-  z-index: 5;
+.reveal .slides section.slide-layout {
+  display: flex !important;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reveal .slide-header,
+.reveal .slide-body,
+.reveal .slide-footer {
+  min-width: 0;
+}
+
+.reveal .slide-body {
+  flex: 0 0 auto;
+  min-height: 0;
+}
+
+.reveal .slide-footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-height: 42px;
+  margin-top: auto;
+  padding: 8px 0 10px;
+  box-sizing: border-box;
+}
+
+.reveal .slides section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.reveal .slides section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reveal .slides section::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgb(0 40 86 / 28%);
+  background-clip: content-box;
+}
+
+.reveal .slide-footer .slide-wordmark {
+  display: block;
   width: 118px;
   height: auto;
+  flex: 0 0 auto;
   pointer-events: none;
 }
 
@@ -99,24 +143,101 @@
 }
 
 .reveal section.title-slide h1 {
-  margin-bottom: 0.2em;
-  color: var(--unist-navy);
-  text-shadow: 0 6px 28px rgb(255 255 255 / 42%);
-  font-size: var(--fs-title);
+  margin: 0;
+  color: var(--text);
+  font-size: calc(var(--fs-h2) * 1.75);
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.06em;
 }
 
-.reveal section.title-slide p {
-  color: var(--unist-navy);
-  text-shadow: 0 3px 18px rgb(255 255 255 / 36%);
-  font-size: var(--fs-title-subtitle);
+.reveal .title-date-rule,
+.reveal .title-content hr {
+  width: 185px;
+  height: 4px;
+  margin: 28px 0 12px;
+  border: 0;
+  background: var(--unist-cyan);
 }
 
-.reveal .brand-slogan {
+.reveal section.title-slide .title-date,
+.reveal section.title-slide .title-content p {
+  margin: 0;
+  color: var(--unist-cyan);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.reveal .title-contact {
   position: absolute;
   z-index: 2;
   left: 30px;
   bottom: 30px;
-  width: 180px;
+  width: min(760px, calc(100% - 60px));
+  color: var(--unist-navy);
+}
+
+.reveal .title-contact h2 {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-size: var(--fs-list-body);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.reveal .title-contact-rule {
+  width: 100%;
+  height: 4px;
+  margin-bottom: 8px;
+  background: var(--unist-navy);
+}
+
+.reveal .title-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.reveal .title-contact-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.reveal section.title-slide .title-contact-text strong,
+.reveal section.title-slide .title-contact-text p,
+.reveal section.title-slide .title-contact-text b {
+  color: var(--text);
+  font-size: var(--fs-control);
+  line-height: 1.25;
+}
+
+.reveal section.title-slide .title-contact-text strong,
+.reveal section.title-slide .title-contact-text p {
+  display: block;
+  margin: 0;
+}
+
+.reveal section.title-slide .title-contact-text strong {
+  margin-bottom: 5px;
+  font-weight: 900;
+}
+
+.reveal section.title-slide .title-contact-text b {
+  margin-right: 8px;
+  font-weight: 900;
+}
+
+.reveal section.title-slide .title-contact-text b:not(:first-child) {
+  margin-left: 22px;
+}
+
+.reveal .ucim-logo {
+  flex: 0 0 auto;
+  width: 210px;
   height: auto;
 }
 
@@ -126,11 +247,29 @@
   text-align: left;
 }
 
+.reveal .visualization-container.seat-apsd-chart {
+  width: 100%;
+  height: 500px;
+}
+
+.reveal section.layout-title-body h1 {
+  margin-bottom: 0.04em;
+}
+
+.reveal section.layout-title-body h1+h2 {
+  margin-top: 0;
+}
+
+.reveal section.layout-title-body h2 {
+  margin-bottom: 0.65em;
+  padding-bottom: 0.28em;
+}
+
 .reveal .columns {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 42px;
-  align-items: center;
+  align-items: start;
 }
 
 .reveal .columns.cols-2-1 {

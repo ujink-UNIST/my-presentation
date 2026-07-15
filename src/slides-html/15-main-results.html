@@ -1,0 +1,32 @@
+<section id="main-results" class="layout-title-body storyboard-slide">
+  <h2>Main Results</h2>
+
+  <div class="main-results-three-col">
+    <div class="storyboard-main-card main-results-text-card">
+      <h3>Reported performance</h3>
+      <div class="result-metric-grid single-column">
+        <article><span>Small-sample RAE</span><strong>≈ 0.08</strong><small>limited training data</small></article>
+        <article><span>Full-sample RAE</span><strong>≈ 0.0036</strong><small>large FE dataset</small></article>
+        <article><span>Targets</span><strong>multi-peak</strong><small>plateau / oscillatory curves</small></article>
+      </div>
+      <ul>
+        <li>Forward prediction improves strongly with database coverage.</li>
+        <li>Inverse examples recover target curve features with feasible lattice structures.</li>
+        <li>Stress–strain curves are treated as design targets, not only evaluation outputs.</li>
+      </ul>
+      <div class="paper-gap-callout compact-callout">
+        Extrapolation outside FE database coverage remains the key question.
+      </div>
+    </div>
+
+    <figure class="paper-slide-figure result-column-figure standalone-result-figure">
+      <img src="./assets/images/paper/figures/fig6.jpg" alt="Forward prediction accuracy results from the reviewed paper" />
+      <figcaption>Forward prediction: predicted vs. true stress–strain curves.</figcaption>
+    </figure>
+
+    <figure class="paper-slide-figure result-column-figure standalone-result-figure">
+      <img src="./assets/images/paper/figures/fig7.jpg" alt="Inverse design target curves and generated lattice structures" />
+      <figcaption>Inverse design: target curves and generated topology examples.</figcaption>
+    </figure>
+  </div>
+</section>

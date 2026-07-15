@@ -1,0 +1,50 @@
+<section id="objective" class="layout-title-body objective-slide">
+  <h2>Research Objective and Scope</h2>
+
+  <div class="objective-layout">
+    <div class="objective-cards">
+      <article class="story-card">
+        <p class="story-card-kicker">Current objective</p>
+        <h3>Automated lattice evaluator</h3>
+        <p>Convert a periodic lattice graph into implicit geometry and a solid mesh, then extract stiffness, density, and low-order modal outputs.</p>
+      </article>
+
+      <article class="story-card">
+        <p class="story-card-kicker">Long-term objective</p>
+        <h3>Active-learning-compatible FEM backend</h3>
+        <p>Select informative lattice candidates under limited simulation budget and build reliable data for downstream AI design.</p>
+      </article>
+    </div>
+
+    <div class="pipeline-card">
+      <h3>Evaluator boundary</h3>
+      <div class="pipeline-flow" aria-label="Evaluator pipeline">
+        <div class="pipeline-step">Periodic graph</div>
+        <div class="pipeline-step">Implicit geometry</div>
+        <div class="pipeline-step">Solid FEM</div>
+        <div class="pipeline-step pipeline-step-math">\(\mathbf{C}^{H},\rho_{rel}\)</div>
+        <div class="pipeline-step pipeline-step-math">\(f_1\sim f_4\)<br />mode shapes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scope-grid">
+    <article class="scope-card">
+      <h3>Static outputs</h3>
+      <ul>
+        <li>Homogenized stiffness matrix Cᴴ</li>
+        <li>Relative density ρ<sub>rel</sub></li>
+        <li>Consistent result schema for AI-ready datasets</li>
+      </ul>
+    </article>
+
+    <article class="scope-card">
+      <h3>Modal outputs</h3>
+      <ul>
+        <li>1st–4th lattice eigenfrequencies</li>
+        <li>1st–4th lattice mode shapes</li>
+        <li>Reusable inputs for later seat-frame-level design</li>
+      </ul>
+    </article>
+  </div>
+</section>
