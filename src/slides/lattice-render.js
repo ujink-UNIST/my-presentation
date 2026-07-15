@@ -306,9 +306,12 @@ export function resizeLatticeSlide() {
   const height = container.clientHeight;
   if (width === 0 || height === 0) return;
 
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(width, height, true);
+  renderer.setViewport(0, 0, width, height);
+
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(width, height, false);
   controls?.update();
 }
 

@@ -1214,6 +1214,12 @@
   box-shadow: 0 16px 45px rgb(0 40 86 / 12%);
 }
 
+.visualization-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 #plotly-scaling-container,
 #plotly-exponent-container {
   background: #ffffff;
