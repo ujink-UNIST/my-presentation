@@ -117,6 +117,8 @@ if (isPrintPdfMode) {
   initCurrentSlide(deck.getCurrentSlide());
 }
 
+window.__presentationReady = true;
+
 deck.on('slidechanged', event => {
   initCurrentSlide(event.currentSlide);
 });

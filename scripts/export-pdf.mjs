@@ -40,8 +40,9 @@ try {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
 
-  await page.goto(`${baseUrl}/?print-pdf`, { waitUntil: 'networkidle' });
-  await page.waitForFunction(() => window.Reveal?.isReady?.() ?? false, null, { timeout: 30_000 });
+  await page.goto(`${baseUrl}/?print-pdf`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => window.__presentationReady === true, null, { timeout: 60_000 });
+  await page.waitForLoadState('networkidle', { timeout: 60_000 }).catch(() => undefined);
   await page.waitForTimeout(4000);
 
   await page.pdf({
