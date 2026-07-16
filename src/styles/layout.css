@@ -176,16 +176,18 @@
   margin: 0;
   color: var(--unist-cyan);
   font-size: var(--fs-body);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .reveal .title-contact {
   position: absolute;
   z-index: 2;
   left: 30px;
+  right: 30px;
   bottom: 30px;
-  width: min(760px, calc(100% - 60px));
+  width: 900px;
   color: var(--unist-navy);
 }
 
@@ -210,12 +212,14 @@
 .reveal .title-contact-row {
   display: flex;
   align-items: flex-start;
-  gap: 28px;
+  justify-content: space-between;
+  gap: 36px;
 }
 
 .reveal .title-contact-text {
   flex: 1 1 auto;
   min-width: 0;
+  max-width: calc(100% - 280px);
 }
 
 .reveal section.title-slide .title-contact-text strong,
@@ -230,6 +234,10 @@
 .reveal section.title-slide .title-contact-text p {
   display: block;
   margin: 0;
+}
+
+.reveal section.title-slide .title-contact-text p {
+  white-space: nowrap;
 }
 
 .reveal section.title-slide .title-contact-text strong {
@@ -248,7 +256,7 @@
 
 .reveal .ucim-logo {
   flex: 0 0 auto;
-  width: 210px;
+  width: 240px;
   height: auto;
 }
 
